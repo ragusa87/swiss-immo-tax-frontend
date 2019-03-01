@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="pdgv+ md-pdgv++ text-center">
+  <div id="app" class="pdgv+ md-pdgv++ text-center container">
     <Intro />
     <div class="grid grid--center">
       <CurrentRate url="http://localhost:3000/ref" />

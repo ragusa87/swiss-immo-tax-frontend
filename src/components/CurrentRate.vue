@@ -1,5 +1,5 @@
 <template>
-    <div class="box">
+    <div class="box box-responsive">
         <div class="loading" v-if="loading">
             {{ $t('messages.rate_loading') }}
         </div>
@@ -13,6 +13,7 @@
             <span>{{ $t('messages.rate_validity', {date: $d(validity)}) }}</span><br>
             <span>{{ $t('messages.rate_update', {date: $d(update)}) }}</span>
         </div>
+        <!--<input @input="(e) => {set(e.target.value)} " type="number">-->
     </div>
 </template>
 

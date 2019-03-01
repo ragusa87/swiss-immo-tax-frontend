@@ -13,7 +13,8 @@ export const messages = {
         calculator_reference: "Reference {reference}%",
         calculator_ref_bail: "Rate in your contract (%)",
         calculator_rent: "Your rate (raw)",
-        calculator_win: "You can save up  to {amount} CHF per year",
+        calculator_win: "You can save up to {amount} CHF per year",
+        calculator_lost: "You can loose up to {amount} CHF per year",
         calculator_error: "Le taux est incorrecte",
         calculator_result: "{result} CHF",
         calculator_result_desc: "Your new rent is"
@@ -34,7 +35,8 @@ export const messages = {
         calculator_reference: "Taux de référence à {reference}%",
         calculator_ref_bail: "Taux dans votre bail (en %)",
         calculator_rent: "Votre loyer brut (CHF)",
-        calculator_win: "Econommies de {amount} CHF par ans",
+        calculator_win: "Econommies de {amount} CHF par an",
+        calculator_lost: "Perte de {amount} CHF par an",
         calculator_error: "Le taux est incorrecte",
         calculator_result: "{result} CHF",
         calculator_result_desc: "Votre nouveau loyer"

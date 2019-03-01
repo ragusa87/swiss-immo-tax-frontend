@@ -1,8 +1,8 @@
 <template>
-    <div v-if="rate" class="box secondary">
+    <div v-if="rate" class="box box-responsive secondary">
         <h1>{{ $t("messages.calculator_title")}}</h1>
         <div class="grid">
-            <p>{{ $t("messages.calculator_reference",{reference: rate})}}</p>
+            <!--<p>{{ $t("messages.calculator_reference",{reference: rate})}}</p>-->
 
             <label class="mrg-">{{$t("messages.calculator_ref_bail")}}
                 <input type="number" v-model.number="ref_bail" />
@@ -15,7 +15,8 @@
             <div v-if="result && !error && ! isNaN(result)">
                 {{$t('messages.calculator_result_desc')}}
                 <h1>{{$t("messages.calculator_result", {result: result})}}</h1>
-                <p>{{$t("messages.calculator_win", {amount: description})}}</p>
+                <p v-if="updated_rent >= 0">{{$t("messages.calculator_win", {amount: updated_rent})}}</p>
+                <p v-if="updated_rent  < 0">{{$t("messages.calculator_lost", {amount: updated_rent*-1})}}</p>
             </div>
             <div v-if="error" class="error">
                 {{$t('messages.calculator_error')}}
@@ -41,7 +42,7 @@
         ref_bail: null,
         rent: null,
         result: null,
-        description: null,
+        updated_rent: null,
         error: false
       }
     },
@@ -61,7 +62,7 @@
         const num_025 = Math.floor(diff/0.25) *0.03
         this.rent = parseFloat(this.rent)
         this.result =  (this.rent + (this.rent * num_025)).toFixed(2)
-        this.description =  ((this.result - parseFloat(this.rent))*12*-1).toFixed(2)
+        this.updated_rent =  ((this.result - parseFloat(this.rent))*12*-1).toFixed(2)
         return this.result;
       },
     },
