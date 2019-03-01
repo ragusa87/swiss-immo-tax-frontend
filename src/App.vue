@@ -1,19 +1,24 @@
 <template>
   <div id="app" class="pdgv+ md-pdgv++ text-center">
-    <Intro msg="Les locataires peu nombreux à contester les loyers abusifs"/>
-    <CurrentRate url="http://localhost:3000/ref" locale=$locale />
+    <Intro />
+    <div class="grid grid--center">
+      <CurrentRate url="http://localhost:3000/ref" />
+      <DiscountCalculator/>
+    </div>
   </div>
 </template>
 
 <script>
 import Intro from './components/Intro.vue'
 import CurrentRate from './components/CurrentRate.vue'
+import DiscountCalculator from './components/DiscountCalculator.vue'
 
 export default {
   name: 'app',
   components: {
     Intro,
-    CurrentRate
+    CurrentRate,
+    DiscountCalculator
   }
 }
 </script>

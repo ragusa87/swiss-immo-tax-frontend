@@ -1,17 +1,17 @@
 <template>
-    <div class="currentrate">
+    <div class="box">
         <div class="loading" v-if="loading">
-            {{ $t("messages.rate_loading") }}...
+            {{ $t('messages.rate_loading') }}
         </div>
         <div v-if="error" class="error">
-            {{ $t("messages.rate_error") }} {{error}}
+            {{ $t('messages.rate_error', {error: error}) }}
         </div>
         <div v-if="value != null" class="content">
-            <h2>{{ $t("messages.rate") }} {{ value }}</h2>
+            <h2 v-html="$t('messages.rate',{value: value})"></h2>
         </div>
         <div v-if="validity || update">
-            <p>{{ $t("messages.rate_validity") + $d(validity) }}</p>
-            <p>{{ $t("messages.rate_update") + $d(update) }}</p>
+            <span>{{ $t('messages.rate_validity', {date: $d(validity)}) }}</span><br>
+            <span>{{ $t('messages.rate_update', {date: $d(update)}) }}</span>
         </div>
     </div>
 </template>
@@ -46,7 +46,7 @@
           return res.json()
         }).then(data => {
           this.loading = false
-          this.value = data.value * 100 + '%'
+          this.value = data.value * 100
           this.validity = new Date(data.validity)
           this.update = new Date(data.lastUpdate)
         }).catch(e => {

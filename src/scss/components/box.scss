@@ -1,0 +1,9 @@
+.box{
+  background: $brand-color;
+  color: black;
+  border-radius: 5px;
+  margin: $spacing-unit-default;
+  &.secondary{
+    background: $alt-color-light;
+  }
+}
