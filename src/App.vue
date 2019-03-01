@@ -3,7 +3,7 @@
     <Intro />
     <div class="grid grid--center">
       <CurrentRate url="http://localhost:3000/ref" />
-      <DiscountCalculator/>
+      <DiscountCalculator :rate="$store.state.reference"/>
     </div>
   </div>
 </template>

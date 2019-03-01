@@ -20,7 +20,7 @@
   export default {
     name: 'CurrentRate',
     props: {
-      url: String,
+      url: String
     },
     data () {
       return {
@@ -46,13 +46,17 @@
           return res.json()
         }).then(data => {
           this.loading = false
-          this.value = data.value * 100
           this.validity = new Date(data.validity)
           this.update = new Date(data.lastUpdate)
+          this.set(data.value * 100)
         }).catch(e => {
           this.error = e
           this.loading = false
         })
+      },
+      set(reference){
+        this.value = reference
+        this.$store.commit("reference", reference)
       }
     }
   }

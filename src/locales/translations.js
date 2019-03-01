@@ -22,7 +22,7 @@ export const messages = {
     },
     fr: {
       messages: {
-        rate_error: 'Erreur: Impossible d\'obtenir le taux actuel',
+        rate_error: 'Erreur: Impossible d\'obtenir le taux actuel {error}',
         rate_loading: 'Chargement du taux..',
         rate: 'Taux de référence à <b>{value}%</b>',
         rate_validity: "Valide depuis le: {date}",

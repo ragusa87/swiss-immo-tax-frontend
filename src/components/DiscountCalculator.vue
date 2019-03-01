@@ -1,8 +1,8 @@
 <template>
-    <div class="box secondary">
+    <div v-if="rate" class="box secondary">
         <h1>{{ $t("messages.calculator_title")}}</h1>
         <div class="grid">
-            <p>{{ $t("messages.calculator_reference",{reference: ref_official})}}</p>
+            <p>{{ $t("messages.calculator_reference",{reference: rate})}}</p>
 
             <label class="mrg-">{{$t("messages.calculator_ref_bail")}}
                 <input type="number" v-model.number="ref_bail" />
@@ -33,9 +33,11 @@
 <script>
   export default {
     name: 'DiscountCalculator',
+    props:{
+      rate: Number
+    },
     data () {
       return {
-        ref_official: 1.5,
         ref_bail: null,
         rent: null,
         result: null,
@@ -53,7 +55,7 @@
           this.result = NaN;
           return;
         }
-        const diff = parseFloat(this.ref_official) - parseFloat(this.ref_bail)
+        const diff = parseFloat(this.rate) - parseFloat(this.ref_bail)
         // We can contest 3% per 0.25 of difference between the rate, if the rate is under 5%
         // https://www.plaidoyer.ch/article/f/la-fixation-du-loyer-selon-le-critere-du-taux-hypothecaire/
         const num_025 = Math.floor(diff/0.25) *0.03
